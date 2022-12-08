@@ -24,8 +24,8 @@ public class Database {
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
 
-        String sql_user = "CREATE TABLE User_table " +
-                "( user_id INTEGER NOT NULL AUTO_INCREMENT, " +
+        String sql_user = "CREATE TABLE User" +
+                "(user_id INTEGER NOT NULL AUTO_INCREMENT, " +
                 " user_name VARCHAR(255), " +
                 " user_email VARCHAR(255), " +
                 " user_passWord VARCHAR(255), " +
@@ -33,38 +33,55 @@ public class Database {
         stmt.executeUpdate(sql_user);
         System.out.println("Table User created");
 
-        String sql_profile = "CREATE TABLE Profile_table " +
-                "( profile_id INTEGER NOT NULL AUTO_INCREMENT, " +
+        String sql_profile = "CREATE TABLE Profile" +
+                "(profile_id INTEGER NOT NULL AUTO_INCREMENT, " +
                 " user_id INTEGER NOT NULL, " +
-                " profile_firstName VARCHAR(255), " +
-                " profile_lastName VARCHAR(255), " +
-                " profile_age INTEGER, " +
-                " profile_birthDate VARCHAR(255), " +
-                " profile_pathPicture VARCHAR(255), " +
-                " profile_city VARCHAR(255), " +
-                " profile_isMale BIT, " +
-                " profile_description VARCHAR(1000), " +
-                " PRIMARY KEY (profile_id)) " +
-                " FOREIGN KEY (user_id) REFERENCES User_table(user_id))";
+                " firstName VARCHAR(255), " +
+                " lastName VARCHAR(255), " +
+                " age INTEGER, " +
+                " birthDate VARCHAR(255), " +
+                " pathPicture VARCHAR(255), " +
+                " city VARCHAR(255), " +
+                " isMale BIT, " +
+                " description VARCHAR(1000), " +
+                " PRIMARY KEY (profile_id), " +
+                " FOREIGN KEY (user_id) references User(user_id))"
+                ;
         stmt.executeUpdate(sql_profile);
         System.out.println("Table Profile created");
+        conn.close();
     }//connectToDatabase()
 
     /**
      *
      * @throws ClassNotFoundException
      * @throws SQLException
-     * @throws InstantiationException
-     * @throws IllegalAccessException
      */
-    public static void fillUser(int pId, String pUserNAme, String pEmail, String pPassWord) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public static void fillUser(int pUserId, String pUserName, String pEmail, String pPassWord) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
-
-        String sqlLine = "INSERT INTO User (user_id, user_name, user_email, user_passWord) VALUES(pId, pUserNAme, pEmail, pPassWord) ";
+        String sqlLine = "INSERT INTO User values ("+pUserId+",'"+pUserName+"','"+pEmail+"','"+pPassWord+"')";
         stmt.executeUpdate(sqlLine);
-    }//Database
+        conn.close();
+    }//fillUser
+
+    /**
+     *
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
+    public static void fillProfile(int pUserId, String pFirstName, String pLastName, int pAge, String pBirthDate, String pPathPicture,
+                                   String pCity, Boolean pIsMale, String pDescription) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+        String sqlLine = "INSERT INTO Profile(user_id, firstName, lastName, age, birthDate, pathPicture, city, isMale, description)" +
+                " values ("+pUserId+",'"+pFirstName+"','"+pLastName+"',"+pAge+",'"+pBirthDate+"','"+pPathPicture+
+                "','"+pCity+"',"+pIsMale+",'"+pDescription+"')";
+        stmt.executeUpdate(sqlLine);
+        conn.close();
+    }//fillUser
 
 
 }//Database
