@@ -5,6 +5,6 @@ import org.junit.jupiter.api.Test;
 class DatabaseTest {
 
     @Test
-    void writeInDatabase() {
+    void fillUser() {
     }
 }

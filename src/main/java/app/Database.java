@@ -57,12 +57,12 @@ public class Database {
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public static void fillUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+    public static void fillUser(int pId, String pUserNAme, String pEmail, String pPassWord) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
 
-        String sqlLine = "INSERT INTO User VALUES ()";
+        String sqlLine = "INSERT INTO User (user_id, user_name, user_email, user_passWord) VALUES(pId, pUserNAme, pEmail, pPassWord) ";
         stmt.executeUpdate(sqlLine);
     }//Database
 
