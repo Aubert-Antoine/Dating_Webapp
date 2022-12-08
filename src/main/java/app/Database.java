@@ -1,13 +1,11 @@
 package app;
 
-import com.sun.istack.NotNull;
-
 import java.sql.*;
 
 
 
 public class Database {
-    static final String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com//sql7583537";
+    static final String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7583537";
     static final String USER = "sql7583537";
     static final String PASS = "SdFXfJAB2n";
 
@@ -26,7 +24,7 @@ public class Database {
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
 
-        String sql_user = "CREATE TABLE User " +
+        String sql_user = "CREATE TABLE User_table " +
                 "( user_id INTEGER NOT NULL AUTO_INCREMENT, " +
                 " user_name VARCHAR(255), " +
                 " user_email VARCHAR(255), " +
@@ -35,7 +33,7 @@ public class Database {
         stmt.executeUpdate(sql_user);
         System.out.println("Table User created");
 
-        String sql_profile = "CREATE TABLE Profile " +
+        String sql_profile = "CREATE TABLE Profile_table " +
                 "( profile_id INTEGER NOT NULL AUTO_INCREMENT, " +
                 " user_id INTEGER NOT NULL, " +
                 " profile_firstName VARCHAR(255), " +
@@ -46,11 +44,10 @@ public class Database {
                 " profile_city VARCHAR(255), " +
                 " profile_isMale BIT, " +
                 " profile_description VARCHAR(1000), " +
-                " PRIMARY KEY (profile_id)) "+
-                " FOREIGN KEY (user_id) REFERENCES User(user_id))";
+                " PRIMARY KEY (profile_id)) " +
+                " FOREIGN KEY (user_id) REFERENCES User_table(user_id))";
         stmt.executeUpdate(sql_profile);
         System.out.println("Table Profile created");
-
     }//connectToDatabase()
 
     /**
