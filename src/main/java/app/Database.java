@@ -1,5 +1,7 @@
 package app;
 
+import com.sun.istack.NotNull;
+
 import java.sql.*;
 
 
@@ -12,6 +14,7 @@ public class Database {
 
     /**
      * createDatabase make a connection and create 2 tables : User and Profile, then close the connection
+     *
      * @throws SQLException
      * @throws ClassNotFoundException
      * @throws InstantiationException
@@ -21,9 +24,9 @@ public class Database {
         // Open a connection
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
-        Statement stmt =  conn.createStatement();
+        Statement stmt = conn.createStatement();
 
-        String sql_user ="CREATE TABLE User " +
+        String sql_user = "CREATE TABLE User " +
                 "( user_id INTEGER NOT NULL AUTO_INCREMENT, " +
                 " user_name VARCHAR(255), " +
                 " user_email VARCHAR(255), " +
@@ -32,7 +35,7 @@ public class Database {
         stmt.executeUpdate(sql_user);
         System.out.println("Table User created");
 
-        String sql_profile ="CREATE TABLE Profile " +
+        String sql_profile = "CREATE TABLE Profile " +
                 "( profile_id INTEGER NOT NULL AUTO_INCREMENT, " +
                 " user_id INTEGER NOT NULL, " +
                 " profile_firstName VARCHAR(255), " +
@@ -43,9 +46,31 @@ public class Database {
                 " profile_city VARCHAR(255), " +
                 " profile_isMale BIT, " +
                 " profile_description VARCHAR(1000), " +
-                " PRIMARY KEY (user_id)) ";
+                " PRIMARY KEY (profile_id)) "+
+                " FOREIGN KEY (user_id) REFERENCES User(user_id))";
         stmt.executeUpdate(sql_profile);
         System.out.println("Table Profile created");
 
     }//connectToDatabase()
+
+    /**
+     *
+     * @param pNameDatabase
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public static void writeInDatabase(@NotNull String pNameDatabase, @NotNull java.lang.Object[] values) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+
+
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+
+        String sqlLine = "INSERT INTO pNameDatabase VALUES ()";
+        stmt.executeUpdate(sqlLine);
+    }//Database
+
+
 }//Database
