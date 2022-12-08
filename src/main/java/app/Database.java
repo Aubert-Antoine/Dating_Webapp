@@ -1,7 +1,8 @@
 package app;
 
 import java.sql.*;
-
+import java.util.HashSet;
+import java.util.Set;
 
 
 public class Database {
@@ -53,6 +54,7 @@ public class Database {
     }//connectToDatabase()
 
     /**
+     * fillUser add a user in the Database table User
      *
      * @throws ClassNotFoundException
      * @throws SQLException
@@ -66,7 +68,9 @@ public class Database {
         conn.close();
     }//fillUser
 
+
     /**
+     * fillProfile add a profile in the Database table Profile
      *
      * @throws ClassNotFoundException
      * @throws SQLException
@@ -83,5 +87,18 @@ public class Database {
         conn.close();
     }//fillUser
 
+    public static HashSet getUserEmail() throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+        String getUserEmail = "SELECT user_email FROM User";
+        ResultSet rs = stmt.executeQuery(getUserEmail);
+        HashSet Emails = new HashSet<String>();
+        while(rs.next()){
+            Emails.add(rs.getString("user_email"));
+        }
+        conn.close();
+        return Emails;
 
+    }
 }//Database

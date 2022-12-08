@@ -37,7 +37,7 @@ alert('here is the username '+ username )
           .then(answer => {
             console.log(answer);
 
-           alert("response" + answer)
+           alert("response " + answer)
            if(answer === "registered"){
            alert("yes its registered")
                this.setState({
@@ -50,7 +50,7 @@ alert('here is the username '+ username )
            this.setState({
               error: answer,
             })
-            alert("there was an error :"+ answer)
+            alert("there was an error : "+ answer)
            }
            },
            (error) => {
