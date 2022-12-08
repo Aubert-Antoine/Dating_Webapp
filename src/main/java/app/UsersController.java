@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @RestController
@@ -27,13 +26,11 @@ public class UsersController {
         user.setEmail(email);
         user.setPassword(password);
 
-        for (Object u: Database.getUserEmail()){
-            if(u.equals(email)) {
-                System.out.println("Error there is already a user with that email");
-                return "there is already a user with that email";
-            }
+
+        if(!Database.isEmailValid(email)) {
+            System.out.println("Error there is already a user with that email");
+            return "there is already a user with that email";
         }
-        System.out.println(user.getId());
         Database.fillUser(user.getId(),user.getUsername(),user.getEmail(),user.getPassword());
         System.out.println("Saved user " + username);
         return "registered";

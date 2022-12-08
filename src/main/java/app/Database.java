@@ -2,8 +2,6 @@ package app;
 
 import java.sql.*;
 import java.util.HashSet;
-import java.util.Set;
-
 
 public class Database {
     static final String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com:3306/sql7583537";
@@ -87,7 +85,7 @@ public class Database {
         conn.close();
     }//fillUser
 
-    public static HashSet getUserEmail() throws ClassNotFoundException, SQLException {
+    public static boolean isEmailValid(String email) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
@@ -95,10 +93,11 @@ public class Database {
         ResultSet rs = stmt.executeQuery(getUserEmail);
         HashSet Emails = new HashSet<String>();
         while(rs.next()){
-            Emails.add(rs.getString("user_email"));
+            if(rs.getString("user_email").equals(email)) {
+                return false;
+            }
         }
         conn.close();
-        return Emails;
-
+        return true;
     }
 }//Database
