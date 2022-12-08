@@ -7,9 +7,9 @@ import java.sql.*;
 
 
 public class Database {
-    static final String DB_URL = "";
-    static final String USER = "";
-    static final String PASS = "";
+    static final String DB_URL = "jdbc:mysql://sql7.freesqldatabase.com//sql7583537";
+    static final String USER = "sql7583537";
+    static final String PASS = "SdFXfJAB2n";
 
 
     /**
@@ -55,20 +55,17 @@ public class Database {
 
     /**
      *
-     * @param pNameDatabase
      * @throws ClassNotFoundException
      * @throws SQLException
      * @throws InstantiationException
      * @throws IllegalAccessException
      */
-    public static void writeInDatabase(@NotNull String pNameDatabase, @NotNull java.lang.Object[] values) throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
-
-
+    public static void fillUser() throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
 
-        String sqlLine = "INSERT INTO pNameDatabase VALUES ()";
+        String sqlLine = "INSERT INTO User VALUES ()";
         stmt.executeUpdate(sqlLine);
     }//Database
 
