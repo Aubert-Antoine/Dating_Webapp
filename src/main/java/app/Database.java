@@ -25,9 +25,9 @@ public class Database {
 
         String sql_user = "CREATE TABLE User" +
                 "(user_id INTEGER NOT NULL AUTO_INCREMENT, " +
-                " user_name VARCHAR(255), " +
-                " user_email VARCHAR(255), " +
-                " user_passWord VARCHAR(255), " +
+                " username VARCHAR(255), " +
+                " email VARCHAR(255), " +
+                " password VARCHAR(255), " +
                 " PRIMARY KEY (user_id)) ";
         stmt.executeUpdate(sql_user);
         System.out.println("Table User created");
@@ -84,20 +84,35 @@ public class Database {
         stmt.executeUpdate(sqlLine);
         conn.close();
     }//fillUser
-
+    /**
+     * @retrun false if the mail is not valid (already exist in database) and true otherwise
+     *
+     * @throws ClassNotFoundException
+     * @throws SQLException
+     */
     public static boolean isEmailValid(String email) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
-        String getUserEmail = "SELECT user_email FROM User";
-        ResultSet rs = stmt.executeQuery(getUserEmail);
-        HashSet Emails = new HashSet<String>();
+        String getUserEmails = "SELECT email FROM User";
+        ResultSet rs = stmt.executeQuery(getUserEmails);
         while(rs.next()){
-            if(rs.getString("user_email").equals(email)) {
+            if(rs.getString("email").equals(email)) {
                 return false;
             }
         }
         conn.close();
         return true;
+    }
+
+    public static boolean isUserValid(String username, String password) throws SQLException, ClassNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+        String sql = "SELECT count(*) FROM User where username = '"+username+"' and password = '"+password+"'";
+        ResultSet rs = stmt.executeQuery(sql);
+        rs.next();
+        if (rs.getInt("count(*)")==1) return true;
+        return false;
     }
 }//Database

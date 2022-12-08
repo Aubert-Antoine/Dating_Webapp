@@ -12,7 +12,7 @@ public class DatingWebApp {
 //        Database.createDatabase();
 //        Database.fillUser(1,"bebe0106","benoit.marchadier@edu.esiee.fr","bebepassword");
 //        Database.fillUser(2,"AntoineAub","antoine.aubert@edu.esiee.fr","antoinepassword");
-
+//
 //        Database.fillProfile(1,"Benoit","Marchadier",20,"06/01","bebe.jpg","Toulouse",true,"I ame Benoit");
     }
 

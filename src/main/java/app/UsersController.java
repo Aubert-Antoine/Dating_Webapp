@@ -38,13 +38,13 @@ public class UsersController {
     }
 
     @GetMapping("/loginUser")
-    public RedirectView loginUser(@RequestParam  String username, @RequestParam String password) {
-        for (User u : repository.findAll()) {
-            if (u.username.equals(username)) {
-                if (u.password.equals(password)) {
-                    return new RedirectView("/login.html");
-                }
-            }
+    public RedirectView loginUser(@RequestParam  String username, @RequestParam String password) throws SQLException, ClassNotFoundException {
+
+        if (Database.isUserValid(username, password)){
+            System.out.println("Valid User");
+        }
+        else{
+            System.out.println("Invalid User");
         }
         return new RedirectView("/login.html");
     }
