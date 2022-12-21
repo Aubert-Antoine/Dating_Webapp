@@ -89,14 +89,14 @@ public class Database {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static boolean isEmailValid(String email) throws ClassNotFoundException, SQLException {
+    public static boolean isEmailValid(String pEmail) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
         String getUserEmails = "SELECT email FROM User";
         ResultSet rs = stmt.executeQuery(getUserEmails);
         while(rs.next()){
-            if(rs.getString("email").equals(email)) {
+            if(rs.getString("email").equals(pEmail)) {
                 return false;
             }
         }
@@ -104,31 +104,30 @@ public class Database {
         return true;
     }
 
-    public static boolean isUserValid(String username, String password) throws SQLException, ClassNotFoundException {
+    public static boolean isUserValid(String pUsername, String pPassword) throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
-        String sql = "SELECT count(*) FROM User where username = '"+username+"' and password = '"+password+"'";
+        String sql = "SELECT count(*) FROM User where username = '"+pUsername+"' and password = '"+pPassword+"'";
         ResultSet rs = stmt.executeQuery(sql);
         rs.next();
         if (rs.getInt("count(*)")==1) return true;
         return false;
     }
-    public static void updateUser(Profile profile) throws ClassNotFoundException, SQLException {
+    public static void updateUser(Profile pProfile) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
         String sql = "UPDATE Profile" +
-                "SET firstName = '"+Profile.firstName+"'," +
-                "SET lastName = '"+Profile.lastName+"'," +
-                "SET age = "+Profile.age+"," +
-                "SET birthDate = '"+Profile.birthDate+"'," +
-                "SET pathPicture = '"+Profile.pathPicture+"'," +
-                "SET city = '"+Profile.city+"'," +
-                "SET isMale = "+Profile.isMale+"," +
-                "SET description = '"+Profile.desription+"'" +
-                "Where profile_id = "+Profile.Id;
+                "SET firstName = '"+pProfile.getFirstName()+"'," +
+                "SET lastName = '"+pProfile.getLastName()+"'," +
+                "SET age = "+pProfile.getAge()+"," +
+                "SET birthDate = '"+pProfile.getBirthDate()+"'," +
+                "SET pathPicture = '"+pProfile.getPicture()+"'," +
+                "SET city = '"+pProfile.getCity()+"'," +
+                "SET isMale = "+pProfile.isMale()+"," +
+                "SET description = '"+pProfile.getDescription()+"'" +
+                "Where profile_id = "+pProfile.getId();
         stmt.execute(sql);
-
     }
 }//Database
