@@ -66,7 +66,6 @@ public class Database {
         conn.close();
     }//fillUser
 
-
     /**
      * fillProfile add a profile in the Database table Profile
      *
@@ -114,5 +113,22 @@ public class Database {
         rs.next();
         if (rs.getInt("count(*)")==1) return true;
         return false;
+    }
+    public static void updateUser(Profile profile) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+        String sql = "UPDATE Profile" +
+                "SET firstName = '"+Profile.firstName+"'," +
+                "SET lastName = '"+Profile.lastName+"'," +
+                "SET age = "+Profile.age+"," +
+                "SET birthDate = '"+Profile.birthDate+"'," +
+                "SET pathPicture = '"+Profile.pathPicture+"'," +
+                "SET city = '"+Profile.city+"'," +
+                "SET isMale = "+Profile.isMale+"," +
+                "SET description = '"+Profile.desription+"'" +
+                "Where profile_id = "+Profile.Id;
+        stmt.execute(sql);
+
     }
 }//Database
