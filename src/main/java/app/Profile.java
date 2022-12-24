@@ -5,14 +5,25 @@ public class Profile extends User{
     private String      firstName;
     private String      lastName;
     private int         age;
-    private Date        birthDate;
+    private String      birthDate;
     private String      picture;
     private String      city;
     private boolean     isMale; // 1 = male , 0 = female
     private String      description;
 
-    public Profile(User user, String firstName, String lastName, int age, Date birthDate, String picture, String city, boolean isMale, String description) {
+    public Profile(User user, String firstName, String lastName, int age, String birthDate, String picture, String city, boolean isMale, String description) {
         super(user.getUsername(),user.getPassword(),user.getEmail());
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.birthDate = birthDate;
+        this.picture = picture;
+        this.city = city;
+        this.isMale = isMale;
+        this.description = description;
+    }
+    public Profile(String firstName, String lastName, int age, String birthDate, String picture, String city, boolean isMale, String description) {
+        super();
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -47,11 +58,11 @@ public class Profile extends User{
         this.age = age;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

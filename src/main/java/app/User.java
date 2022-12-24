@@ -8,19 +8,25 @@ import javax.persistence.Id;
 public class User {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private Integer id;
+    private int id;
     private String username;
     private String email;
     private String password;
 
 
-    public User(String username, String password, String email) {
-        this.username = username;
-        this.password = password;
-        this.email = email;
+    public User(String pUsername, String pPassword, String pEmail) {
+        this.username = pUsername;
+        this.password = pPassword;
+        this.email = pEmail;
     }
 
     public User() {
+        this.username = "default";
+        this.password = "default";
+        this.email =  "default";
+    }
+    public User(int pId) {
+        this.id = pId;
         this.username = "default";
         this.password = "default";
         this.email =  "default";
@@ -45,10 +51,10 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
-    public Integer getId() {
-        return id;
+    public int getId() {
+        return this.id;
     }
 }
