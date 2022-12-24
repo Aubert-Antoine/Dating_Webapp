@@ -107,7 +107,7 @@ alert('here is the username '+ username )
                                 </li>
                                 <li>
                                     <i/>
-                                    <a onClick={ () => this.changeView("PWReset")} href="#">Forgot Password?</a>
+                                    <a onClick={ () => this.changeView("PWReset")} href="static/js#">Forgot Password?</a>
                                 </li>
                             </ul>
                         </fieldset>
