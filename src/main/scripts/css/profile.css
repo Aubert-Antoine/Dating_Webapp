@@ -1,0 +1,22 @@
+.first__Block {
+    display: inline-block;
+    padding: 15px;
+
+}
+
+.main__content {
+    padding-left: 50px;
+    padding-right: 35px;
+}
+
+.profile__primary__info {
+    display: flex;
+    justify-content: center;
+}
+
+.profile__info {
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 40px;
+}

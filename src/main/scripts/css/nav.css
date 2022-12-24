@@ -1,0 +1,41 @@
+.nav {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* NAV BAR */
+.Nav__bar_ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.Nav__bar_li {
+    float: left;
+}
+
+.Nav__bar_li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.Nav__bar_li a:hover {
+    background-color: #111;
+}
+
+/* Scroll-bar */
+body::-webkit-scrollbar{
+    display: none;
+}
