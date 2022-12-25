@@ -10,7 +10,7 @@ import java.util.Stack;
 @SpringBootApplication
 public class DatingWebApp {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
-//        SpringApplication.run(DatingWebApp.class, args);
+        SpringApplication.run(DatingWebApp.class, args);
 //        Database.createDatabase();
 //        Database.fillUser(1,"bebe0106","benoit.marchadier@edu.esiee.fr","benoitpassword");
 //        Database.fillUser(2,"AntoineAub","antoine.aubert@edu.esiee.fr","antoinepassword");

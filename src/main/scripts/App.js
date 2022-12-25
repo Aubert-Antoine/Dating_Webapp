@@ -3,7 +3,7 @@ import Footer from "./components/Footer";
 import Profile from "./components/Profile";
 import Edit_Profile from "./components/Edit_Profile";
 import Lorem from "./components/Lorem";
-import ImageSlider from "./components/Slider.mjs";
+import ligon from './components/Login'
 
 import './styleSheet/App.css'
 
@@ -12,9 +12,9 @@ function App () {
 
     return (
         <>
+            <h1>test dans App</h1>
             <NavBar/>
             <br/>
-            <ImageSlider />
             <br/>
             <Footer/>
         </>
