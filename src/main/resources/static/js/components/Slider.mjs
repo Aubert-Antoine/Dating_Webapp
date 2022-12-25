@@ -21,10 +21,10 @@ function ImageSlider() {
                         <img src="images/8.jpg" />
                     </div>
                     <ul className="social-icons">
-                        <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i className="fa fa-dribbble"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-facebook"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-instagram"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-twitter"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-dribbble"></i></a></li>
                     </ul>
                     <div className="details">
                         <h2>John Doe <span className="job-title">UI Developer</span></h2>
@@ -37,10 +37,10 @@ function ImageSlider() {
                         <img src="images/15.jpg" />
                     </div>
                     <ul className="social-icons">
-                        <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i className="fa fa-dribbble"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-facebook"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-instagram"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-twitter"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-dribbble"></i></a></li>
                     </ul>
                     <div className="details">
                         <h2>John Doe <span className="job-title">UI Developer</span></h2>
@@ -53,10 +53,10 @@ function ImageSlider() {
                         <img src="images/7.jpg" />
                     </div>
                     <ul className="social-icons">
-                        <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i className="fa fa-dribbble"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-facebook"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-instagram"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-twitter"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-dribbble"></i></a></li>
                     </ul>
                     <div className="details">
                         <h2>John Doe <span className="job-title">UI Developer</span></h2>
@@ -69,10 +69,10 @@ function ImageSlider() {
                         <img src="images/16.jpg" />
                     </div>
                     <ul className="social-icons">
-                        <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i className="fa fa-dribbble"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-facebook"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-instagram"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-twitter"></i></a></li>
+                        <li><a href="static/js/components#"><i className="fa fa-dribbble"></i></a></li>
                     </ul>
                     <div className="details">
                         <h2>John Doe <span className="job-title">UI Developer</span></h2>

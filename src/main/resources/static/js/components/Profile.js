@@ -5,7 +5,7 @@ function Profile(){
         <div className="profile">
                 <div className="profile__primary__info">
                     <ul className="profile__picture">
-                        <img src="" className="pp" alt="PP"/>
+                        <img src="static/js/components" className="pp" alt="PP"/>
                     </ul>
                     <ul className="profile__fn_lf">
                         <div><h1 className="h1__FirstName"><b>John-John</b></h1></div>

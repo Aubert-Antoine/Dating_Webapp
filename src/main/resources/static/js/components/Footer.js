@@ -13,11 +13,11 @@ function Footer(){
 
                     <ul className="nav__ul">
                         <li>
-                            <a href="#">Join Now</a>
+                            <a href="static/js/components#">Join Now</a>
                         </li>
 
                         <li>
-                            <a href="#">Manage Account</a>
+                            <a href="static/js/components#">Manage Account</a>
                         </li>
                     </ul>
                 </li>
@@ -27,11 +27,11 @@ function Footer(){
 
                     <ul className="nav__ul">
                         <li>
-                            <a href="#">About Dev</a>
+                            <a href="static/js/components#">About Dev</a>
                         </li>
 
                         <li>
-                            <a href="#">Contact us</a>
+                            <a href="static/js/components#">Contact us</a>
                         </li>
                     </ul>
                 </li>
@@ -41,11 +41,11 @@ function Footer(){
 
                     <ul className="nav__ul">
                         <li>
-                            <a href="#">GitHub</a>
+                            <a href="static/js/components#">GitHub</a>
                         </li>
 
                         <li>
-                            <a href="#">UCY</a>
+                            <a href="static/js/components#">UCY</a>
                         </li>
                     </ul>
                 </li>
