@@ -1,4 +1,5 @@
-import '../styleSheet/profile_edit.css'
+import '../css/profile_edit.css'
+import React from "react";
 
 class EditProfile extends React.Component {
     render() {

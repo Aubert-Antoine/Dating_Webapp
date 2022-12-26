@@ -1,5 +1,5 @@
-import '../styleSheet/profile.css'
-
+import '../css/profile.css'
+import React from "react";
 class Profile extends React.Component {
     render() {
         return (
