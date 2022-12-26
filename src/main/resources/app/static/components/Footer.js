@@ -41,11 +41,11 @@ function Footer(){
 
                     <ul className="nav__ul">
                         <li>
-                            <a href="app/static/js/components#">GitHub</a>
+                            <a href="https://github.com/Aubert-Antoine/Dating_Webapp">GitHub</a>
                         </li>
 
                         <li>
-                            <a href="app/static/js/components#">UCY</a>
+                            <a href="https://www.ucy.ac.cy/">UCY</a>
                         </li>
                     </ul>
                 </li>
@@ -53,7 +53,6 @@ function Footer(){
 
             <div className="legal">
                 <i>Made by Antoine Aubert & Benoit Marchadier</i>
-
             </div>
         </footer>
     );
