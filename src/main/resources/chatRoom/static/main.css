@@ -1,0 +1,44 @@
+h1{
+    width: 98%;
+    background: #a1cbf5;
+    color: white;
+    margin-left: 1%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+.messageArea{
+    border: 1px lightgray solid;
+    width:98%;
+    margin-left: 1%;";
+    padding: 40px;
+    overflow-y: scroll;
+    height:780px;
+}
+
+td {display:block; box-sizing:border-box; clear:both}
+
+table {width: 100%;}
+
+.deletebutton {
+    float: right;
+}
+
+
+.bootstrap_chat {
+  background-color: #74EBD5;
+  min-height: 100vh;
+}
+
+.text-small {
+  font-size: 0.9rem;
+}
+
+.messages-box, .chat-box {
+  height: 510px;
+  overflow-y: scroll;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+

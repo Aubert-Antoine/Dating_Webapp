@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel" src="Main.js"></script>
+    <link rel="stylesheet"  href="./main.css">
+    <title>Chat Room</title>
+</head>
+<body>
+<div id="title">
+<h1 >Chat Room </h1>
+</div>
+<div class="messageArea" id="messageArea" >
+
+
+</div>
+
+<div id="sendMessageForm" class="ml-2 mr-2">
+    <form action="/addMessageandResponse" method="GET" class="bg-light">
+        <div class="input-group">
+            <input type="text" name="message" placeholder="Type a message" aria-describedby="button-addon2" class="form-control rounded-0 border-0 bg-light">
+            <div class="input-group-append pb-1">
+                <button id="button-addon2" type="submit" class="btn btn-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-send mr-1 mt-1 pb-1" viewBox="0 0 16 16">
+                        <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

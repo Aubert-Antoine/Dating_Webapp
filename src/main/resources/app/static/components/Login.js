@@ -107,7 +107,7 @@ alert('here is the username '+ username )
                                 </li>
                                 <li>
                                     <i/>
-                                    <a onClick={ () => this.changeView("PWReset")} href="static/tmp#">Forgot Password?</a>
+                                    <a onClick={ () => this.changeView("PWReset")} href="app/static/tmp#">Forgot Password?</a>
                                 </li>
                             </ul>
                         </fieldset>
@@ -151,4 +151,4 @@ alert('here is the username '+ username )
     }
 }
 
-ReactDOM.render(<EntryPage/>, document.getElementById("login"))
+ReactDOM.render(<EntryPage/>, document.getElementById("app"))

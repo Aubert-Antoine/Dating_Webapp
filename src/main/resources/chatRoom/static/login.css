@@ -1,0 +1,22 @@
+@font-face {
+    font-family: "font-1";
+    src: url(./assets/fonts/Bacode-Font/Bacode\ PERSONAL\ USE\ ONLY!.ttf);
+}
+
+h1{
+    font-family: "font-1";
+    color: dodgerblue;
+    text-align: center;
+    font-size: 50px;
+}
+
+p{
+    font-family: "font-1";
+    color: dodgerblue;
+    font-size: larger;
+}
+
+form{
+    font-family: "font-1";
+    font-size: xxx-large;
+}
