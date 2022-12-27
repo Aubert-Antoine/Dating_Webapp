@@ -15,7 +15,17 @@ class Carousel extends React.Component {
             });
     }
 
-    handleLike = () => {
+    //[{"id":0,"username":"maria","email":"test","password":"test","firstName":"test","lastName":"test","age":1,"birthDate":"test","picture":"/assets/favicon/favicon-16x16.png","city":"test","description":"test","male":true}]
+    changeActivePage= (page) =>{
+        this.setState({
+            activepage:page
+        })
+    }
+
+    handleLike = (user_id) => {
+        alert("handle like from"+ +this.state.user_id+" to " +user_id  )
+        fetch('/likes?from='+this.state.user_id+"&to="+user_id)
+
         // Handle the "like" action for the current profile
     }
 

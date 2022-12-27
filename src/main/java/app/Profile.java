@@ -12,7 +12,7 @@ public class Profile extends User{
     private String      description;
 
     public Profile(User user, String firstName, String lastName, int age, String birthDate, String picture, String city, boolean isMale, String description) {
-        super(user.getUsername(),user.getPassword(),user.getEmail());
+        super(user.getId(), user.getUsername(),user.getPassword(),user.getEmail());
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
@@ -32,6 +32,18 @@ public class Profile extends User{
         this.city = city;
         this.isMale = isMale;
         this.description = description;
+    }
+
+    public Profile(){
+        super();
+        this.firstName = "firstName";
+        this.lastName = "lastName";
+        this.age = 10;
+        this.picture = "picture";
+        this.birthDate = String.valueOf(111);
+        this.city = "city";
+        this.isMale = true;
+        this.description = "description";
     }
 
     public String getFirstName() {

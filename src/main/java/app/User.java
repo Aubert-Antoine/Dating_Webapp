@@ -7,20 +7,22 @@ import javax.persistence.Id;
 @Entity
 public class User {
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    //@GeneratedValue (strategy = GenerationType.AUTO)
     private int id;
     private String username;
     private String email;
     private String password;
 
 
-    public User(String pUsername, String pPassword, String pEmail) {
+    public User(int pUserId, String pUsername, String pPassword, String pEmail) {
+        this.id = pUserId;
         this.username = pUsername;
         this.password = pPassword;
         this.email = pEmail;
     }
 
     public User() {
+        this.id = 0;
         this.username = "default";
         this.password = "default";
         this.email =  "default";

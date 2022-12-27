@@ -1,6 +1,3 @@
-import '../css/nav.css'
-
-
 function NavBar() {
     return (
         <nav>
@@ -13,4 +10,4 @@ function NavBar() {
     );
 }
 
-export default NavBar;
+ReactDOM.render(<App/>, document.getElementById("root"))
