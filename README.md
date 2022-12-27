@@ -12,7 +12,8 @@ https://github.com/Aubert-Antoine/Dating_Webapp/issues/
 ## Dating Webapp Project
 
 ### **RUN and reuse** :
-> Run explanation :
+> JDK 18 | SDK of 'Dating Webapp' module | -cp Dating Webapp
+> app.DatingWebApp
 
 #### Languages and tools
 1. **Java**
