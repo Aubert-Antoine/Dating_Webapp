@@ -7,6 +7,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @RestController
 public class UsersController {
@@ -48,6 +49,53 @@ public class UsersController {
         }
         return new RedirectView("/login.html");
     }
+
+
+
+    @GetMapping("/likes")
+    public void registerLike(@RequestParam int from,@RequestParam int to ){
+        //register that user with id "from" likes user with id "to".
+        System.out.println("User with id "+ from + " likes user with id "+ to);
+    }
+    @GetMapping("/profiles")
+    public Iterable<Profile>  getallProfiles() {
+        // write code to connect to db
+        //get all profiles
+        User user = new User(1, "maria", "test", "test");
+        User user1 = new User(2, "test 1 ", "test 1 ", "test 1");
+        Profile test = new Profile(user,"test","test", 1,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
+        Profile test1 = new Profile(user1,"test 1 ","test 1", 0,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
+        ArrayList<Profile>  list = new ArrayList<>();
+        list.add(test);
+        list.add(test1);
+        return list;
+
+    }
+
+    @GetMapping("/profile")
+    public Iterable<Profile>  getaProfile() {
+        // write code to connect to db
+        //get a profile not yet shown to the user
+        User user = new User(1, "maria", "test", "test");
+        Profile test1 = new Profile(user,"test 1 ","test 1", 0,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
+        ArrayList<Profile>  list = new ArrayList<>();
+        list.add(test1);
+        return list;
+
+    }
+
+    @GetMapping("/anotherprofile")
+    public Iterable<Profile>  getanotherProfile() {
+        // write code to connect to db
+        //get a profile not yet shown to the user
+        User user = new User(2, "George", "George", "test");
+        Profile test1 = new Profile(user,"Geroge ","George 1", 0,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
+        ArrayList<Profile>  list = new ArrayList<>();
+        list.add(test1);
+        return list;
+
+    }
+
 
 
 }
