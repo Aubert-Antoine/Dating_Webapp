@@ -4,7 +4,7 @@ function Footer(){
     return (
         <footer className="footer">
             <div className="footer__addr">
-                <h1 className="footer__logo">Your Logo</h1>
+                <h1 className="footer__logo">Dating Webapp</h1>
             </div>
 
             <ul className="footer__nav">
@@ -13,11 +13,11 @@ function Footer(){
 
                     <ul className="nav__ul">
                         <li>
-                            <a href="app/static/js/components#">Join Now</a>
+                            <a href="../login.html">Join Now</a>
                         </li>
 
                         <li>
-                            <a href="app/static/js/components#">Manage Account</a>
+                            <a href="app/static/js/components#">Edit Profile</a>
                         </li>
                     </ul>
                 </li>
@@ -27,11 +27,11 @@ function Footer(){
 
                     <ul className="nav__ul">
                         <li>
-                            <a href="app/static/js/components#">About Dev</a>
+                            <a href="https://www.linkedin.com/in/antoine0aubert/">About Dev</a>
                         </li>
 
                         <li>
-                            <a href="app/static/js/components#">Contact us</a>
+                            <a href="mailto:antoine0aubert@edu.esiee.fr">Contact us</a>
                         </li>
                     </ul>
                 </li>
