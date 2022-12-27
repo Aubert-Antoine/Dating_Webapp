@@ -29,7 +29,7 @@ class Carousel extends Component {
                     alert(response)
                     console.log(response);
                     this.setState({profiles: response})
-                   this.setState({currentprofile: response[this.state.currentIndex]})
+                    this.setState({currentprofile: response[this.state.currentIndex]})
                     alert("first profile"+response[this.state.currentIndex].firstName)
 
 
@@ -137,7 +137,7 @@ class Carousel extends Component {
                         <img src={currentProfile.picture} alt="Profile picture" />
                         <div className="carousel__item__info">
                             <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
-                            <p>{currentProfile.biography}</p>
+                            <p>{currentProfile.description}</p>
                             <p>Location: {currentProfile.city}</p>
                             <p>Date of birth: {currentProfile.dob}</p>
                             <p>Gender: {currentProfile.gender}</p>
