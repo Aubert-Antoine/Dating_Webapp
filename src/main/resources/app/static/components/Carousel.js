@@ -19,21 +19,15 @@ class Carousel extends Component {
 
 
     componentDidMount() {
-        alert("component did mount ")
         // Fetch the profiles from the backend
 
         fetch('/profiles')
             .then(response => response.json())
             .then(
                 (response) => {
-                    alert(response)
                     console.log(response);
                     this.setState({profiles: response})
                     this.setState({currentprofile: response[this.state.currentIndex]})
-                    alert("first profile"+response[this.state.currentIndex].firstName)
-
-
-
                 })
 
     }
@@ -45,7 +39,6 @@ class Carousel extends Component {
     }
 
     handleLike = (user_id) => {
-        alert("handle like from"+ +this.state.user_id+" to " +user_id  )
         fetch('/likes?from='+this.state.user_id+"&to="+user_id)
         // Handle the "like" action for the current profile
         this.setState(prevState => ({
@@ -58,7 +51,6 @@ class Carousel extends Component {
 
 
     handleDislike = (user_id) => {
-        alert("handle like from"+ +this.state.user_id+" to " +user_id  )
         fetch('/likes?from='+this.state.user_id+"&to="+user_id)
         // Handle the "like" action for the current profile
         this.setState(prevState => ({

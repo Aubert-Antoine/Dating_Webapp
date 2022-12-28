@@ -1,9 +1,13 @@
-.carousel__item {
-    padding: 5px;
+.carousel {
     align-items: center;
+    padding-top: 15px;
+    place-items: center;
+    margin:0px auto;
 }
 
-
+/*
+Buttons
+ */
 .button_carousel-like {
     background-color: white;
     color: black;
@@ -29,9 +33,13 @@
 }
 
 
-.button_carousel:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
+.button_carousel-like:hover {
+    background-color: #c72ccc;
+    color: #111;
 }
 
+.button_carousel-dislike:hover {
+    background-color: #362338;
+    color: #111;
+}
 

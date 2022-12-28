@@ -13,7 +13,7 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333;
+    /*background-color: #333;*/
     position: fixed;
     top: 0;
     width: 100%;
@@ -25,16 +25,16 @@
 
 .Nav__bar_li a {
     display: block;
-    color: white;
+    /*color: white;*/
     text-decoration: none;
     text-align: center;
     padding: 14px 16px;
 }
 .button_navbar {
-    background-color: white;
+    /*background-color: #332a2a;*/
     color: black;
-    border: 2px solid #4CAF50; /* Green */
-    padding: 15px 32px;
+    /*border: 2px solid #c72ccc;*/
+    padding: 10px 22px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -42,12 +42,12 @@
     transition-duration: 0.4s;
 }
 .button_navbar:hover {
-    background-color: #4CAF50; /* Green */
-    color: white;
+    background-color: #c72ccc;
+    color: #111;
 }
 
 .Nav__bar_li a:hover {
-    background-color: #111;
+    /*background-color: #111;*/
 }
 
 /* Scroll-bar */
