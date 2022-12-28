@@ -255,56 +255,65 @@ public class Database {
         return profiles;
     }
 
-    public static void acceptProfile(Profile currentUser, Profile acceptedProfile) throws ClassNotFoundException, SQLException {
+    public static void acceptProfile(int currentUserId, int acceptedProfileId) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
+        String sql_isMale ="SELECT isMale from Profile where user_id = "+currentUserId;
+        ResultSet rs = stmt.executeQuery(sql_isMale);
+        rs.next();
+        Boolean isMale = rs.getBoolean("isMale");
 
         // Recuperation des infos du match en cour entre les 2 profiles
         String sql_isMIP="";
-        if (currentUser.isMale()) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where men_id = "+currentUser.getId()+" and women_id = "+acceptedProfile.getId();
-        if (!currentUser.isMale()) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where women_id = "+currentUser.getId()+" and men_id = "+acceptedProfile.getId();
-        ResultSet rs = stmt.executeQuery(sql_isMIP);
+        if (isMale) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where men_id = "+currentUserId+" and women_id = "+acceptedProfileId;
+        if (!isMale) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where women_id = "+currentUserId+" and men_id = "+acceptedProfileId;
+        rs = stmt.executeQuery(sql_isMIP);
 
         // Si pas de match en cour : creation d'un nouveau MIP puis retour
         if (!rs.next()){
             String sql_newMIP = "";
-            if (currentUser.isMale()) sql_newMIP = "INSERT into MIP(men_id,women_id,menIsOk) values("+currentUser.getId()+","+acceptedProfile.getId()+",true) ";
-            if (!currentUser.isMale()) sql_newMIP = "INSERT into MIP(men_id,women_id,womenIsOk) values("+acceptedProfile.getId()+","+currentUser.getId()+",true) ";
+            if (isMale) sql_newMIP = "INSERT into MIP(men_id,women_id,menIsOk) values("+currentUserId+","+acceptedProfileId+",true) ";
+            if (!isMale) sql_newMIP = "INSERT into MIP(men_id,women_id,womenIsOk) values("+acceptedProfileId+","+currentUserId+",true) ";
             stmt.execute(sql_newMIP);
             return;
         }
 
         // On transfer le MIP dans la bonne table
-        if(currentUser.isMale() && rs.getBoolean("womenIsOk")) {
-            Database.addMatch(currentUser.getId(), acceptedProfile.getId());
-            Database.delMIP(currentUser.getId(), acceptedProfile.getId());
+        if(isMale && rs.getBoolean("womenIsOk")) {
+            Database.addMatch(currentUserId, acceptedProfileId);
+            Database.delMIP(currentUserId, acceptedProfileId);
         }
-        else if(!currentUser.isMale() && rs.getBoolean("menIsOk")){
-            Database.addMatch(acceptedProfile.getId(),currentUser.getId());
-            Database.delMIP(acceptedProfile.getId(), currentUser.getId());
+        else if(!isMale && rs.getBoolean("menIsOk")){
+            Database.addMatch(acceptedProfileId,currentUserId);
+            Database.delMIP(acceptedProfileId, currentUserId);
         }
     }
 
-    public static void refuseProfile(Profile currentUser, Profile acceptedProfile) throws ClassNotFoundException, SQLException {
+    public static void refuseProfile(int currentUserId, int acceptedProfileId) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
 
+        String sql_isMale ="SELECT isMale from Profile where user_id = "+currentUserId;
+        ResultSet rs = stmt.executeQuery(sql_isMale);
+        rs.next();
+        Boolean isMale = rs.getBoolean("isMale");
+
         // Recuperation des infos du match en cour entre les 2 profiles
         String sql_isMIP="";
-        if (currentUser.isMale()) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where men_id = "+currentUser.getId()+" and women_id = "+acceptedProfile.getId();
-        if (!currentUser.isMale()) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where women_id = "+currentUser.getId()+" and men_id = "+acceptedProfile.getId();
-        ResultSet rs = stmt.executeQuery(sql_isMIP);
+        if (isMale) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where men_id = "+currentUserId+" and women_id = "+acceptedProfileId;
+        if (!isMale) sql_isMIP = "SELECT men_id,women_id,menIsOk,womenIsOk from MIP where women_id = "+currentUserId+" and men_id = "+acceptedProfileId;
+        rs = stmt.executeQuery(sql_isMIP);
 
         // On transfer le MIP dans la table NoMatch
-        if(currentUser.isMale()) {
-            Database.addNoMatch(currentUser.getId(), acceptedProfile.getId());
-            if (rs.next()) Database.delMIP(currentUser.getId(), acceptedProfile.getId());
+        if(isMale) {
+            Database.addNoMatch(currentUserId, acceptedProfileId);
+            if (rs.next()) Database.delMIP(currentUserId, acceptedProfileId);
         }
-        else if(!currentUser.isMale()){
-            Database.addNoMatch(acceptedProfile.getId(),currentUser.getId());
-            if (rs.next()) Database.delMIP(acceptedProfile.getId(), currentUser.getId());
+        else if(!isMale){
+            Database.addNoMatch(acceptedProfileId,currentUserId);
+            if (rs.next()) Database.delMIP(acceptedProfileId, currentUserId);
         }
     }
 

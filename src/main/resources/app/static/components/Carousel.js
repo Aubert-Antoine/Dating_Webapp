@@ -51,7 +51,7 @@ class Carousel extends Component {
 
 
     handleDislike = (user_id) => {
-        fetch('/likes?from='+this.state.user_id+"&to="+user_id)
+        fetch('/dislikes?from='+this.state.user_id+"&to="+user_id)
         // Handle the "like" action for the current profile
         this.setState(prevState => ({
             currentIndex: (prevState.currentIndex + 1) % prevState.profiles.length
@@ -102,9 +102,7 @@ class Carousel extends Component {
                                  <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
                                  <p>{currentProfile.description}</p>
                                  <p>Location: {currentProfile.city}</p>
-                                 <p>Date of birth: {currentProfile.birthDate}</p>
-                                 <p>Gender: {currentProfile.male}</p>
-                                 <p>id: {currentProfile.id}</p>
+                                 <p>Age: {currentProfile.age}</p>
                              </div>
                              <button className="button_carousel-like" onClick={() =>this.handleLike(currentProfile.id)}>Like</button>
                              <button className="button_carousel-dislike" onClick={() =>this.handleDislike (currentProfile.id)}>Dislike</button>

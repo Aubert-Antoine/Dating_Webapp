@@ -53,22 +53,27 @@ public class UsersController {
 
 
     @GetMapping("/likes")
-    public void registerLike(@RequestParam int from,@RequestParam int to ){
+    public void registerLike(@RequestParam int from,@RequestParam int to ) throws SQLException, ClassNotFoundException {
         //register that user with id "from" likes user with id "to".
+        Database.acceptProfile(from,to);
         System.out.println("User with id "+ from + " likes user with id "+ to);
     }
+    @GetMapping("/dislikes")
+    public void registerDisLike(@RequestParam int from,@RequestParam int to ) throws SQLException, ClassNotFoundException {
+        //register that user with id "from" dislikes user with id "to".
+        Database.refuseProfile(from,to);
+        System.out.println("User with id "+ from + " dislikes user with id "+ to);
+    }
     @GetMapping("/profiles")
-    public Iterable<Profile>  getallProfiles() {
+    public Profile[]  getallProfiles() {
         // write code to connect to db
         //get all profiles
         User user = new User(1, "maria", "test", "test");
         User user1 = new User(2, "test 1 ", "test 1 ", "test 1");
-        Profile test = new Profile(user,"test","test", 1,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
-        Profile test1 = new Profile(user1,"test 1 ","test 1", 0,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
-        ArrayList<Profile>  list = new ArrayList<>();
-        list.add(test);
-        list.add(test1);
-        return list;
+        Profile test = new Profile(user,"Maria","Je sais pas", 20,"test","/asset/favicon/favicon-16x16.png","Toulouse",true, "Je m'appel Maria");
+        Profile test1 = new Profile(user1,"test 1 ","test 1", 10,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
+        Profile[] profiles = {test,test1};
+        return profiles;
 
     }
 
