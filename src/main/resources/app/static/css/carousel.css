@@ -1,8 +1,9 @@
-.carousel {
+.carousel__item {
     align-items: center;
     padding-top: 15px;
     place-items: center;
     margin:0px auto;
+    display: block
 }
 
 /*
