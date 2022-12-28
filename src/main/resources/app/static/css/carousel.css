@@ -2,18 +2,20 @@
     align-items: center;
     padding-top: 15px;
     place-items: center;
-    margin:0px auto;
-    display: block
+    margin: 40px auto;
+    display: block;
 }
 
 /*
 Buttons
  */
 .button_carousel-like {
-    background-color: white;
+    background-color: #f2eee3;
     color: black;
-    border: 2px solid #4CAF50; /* Green */
-    padding: 15px 32px;
+    border: 1px solid black;
+    margin: 1px;
+    margin-right: 5px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -22,10 +24,12 @@ Buttons
 }
 
 .button_carousel-dislike {
-    background-color: white;
+    background-color: #f2eee3;
     color: black;
-    border: 2px solid #700f0f; /* Green */
-    padding: 15px 32px;
+    border: 1px solid black;
+    margin: 1px;
+    margin-left: 5px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -35,12 +39,12 @@ Buttons
 
 
 .button_carousel-like:hover {
-    background-color: #c72ccc;
+    background-color: #c9c1ad;
     color: #111;
 }
 
 .button_carousel-dislike:hover {
-    background-color: #362338;
+    background-color: #c9c1ad;
     color: #111;
 }
 

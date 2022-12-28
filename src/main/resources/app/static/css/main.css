@@ -1,18 +1,12 @@
-.body {
-    align-items: center;
-}
-
 @font-face {
     font-family: "font-1";
     src: url(../asset/font/Bacode\ PERSONAL\ USE\ ONLY!.ttf);
 }
 
-h1-font{
-    font-family: "font-1";
-    color: sienna;
+.body{
+    background-color: #f2eee3;
 }
-
-*{
+h1-font{
     font-family: "font-1";
     color: sienna;
 }
