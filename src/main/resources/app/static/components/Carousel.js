@@ -5,7 +5,7 @@ class Carousel extends Component {
     constructor(props){
         super(props)
         this.state = {
-            activepage: "Discover",
+            activepage: "Edit Profile",
             currentIndex: 0,
             profiles: [],
             user_id:1,
