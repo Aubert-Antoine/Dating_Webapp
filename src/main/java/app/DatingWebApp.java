@@ -25,15 +25,14 @@ public class DatingWebApp {
 //        Database.fillProfile(5,"Pauline","Gouillart",20,"13/01","paulineG.jpg","Paris",false,"I ame PaulineG");
 //        Database.fillProfile(6,"Coralie","Foulart",20,"05/05","Coralie.jpg","Paris",false,"I ame Coralie");
 //
-//        User UserBenoit = new User("bebe0106","benoit.marchadier@edu.esiee.fr","benoitpassword");
-//        Profile ProfileBenoit = new Profile(UserBenoit,"Benoit","Marchadier",20,"06/01/2002","benoit.jpg","Toulouse",true,"I ame Benoit");
+//        Profile ProfileBenoit = new Profile("Benoit","Marchadier",20,"06/01/2002","benoit.jpg","Toulouse",true,"I ame Benoit");
 //        ProfileBenoit.setId(1);
 //        Profile ProfilePauline = new Profile("Pauline","Gouillart",20,"06/01/2002","benoit.jpg","Toulouse",false,"I ame Benoit");
 //        ProfilePauline.setId(4);
 //        Profile ProfileCoralie = new Profile("Coralie","Foulart",20,"06/01/2002","benoit.jpg","Toulouse",false,"I ame Benoit");
 //        ProfileCoralie.setId(6);
 //
-//        Stack profiles = Database.getProfiles(ProfileBenoit,5);
+//        Stack profiles = Database.getProfiles(1,5);
 //        System.out.println("taille du tableau : "+profiles.size());
 //        for (int i=0;i<profiles.size();i++){
 //            System.out.println(profiles.get(i));

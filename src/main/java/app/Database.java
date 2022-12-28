@@ -200,48 +200,52 @@ public class Database {
     }
 
 
-    public static Stack getProfiles(Profile profile, int numberOfProfiles) throws ClassNotFoundException, SQLException {
+    public static Stack getProfiles(int profileId, int numberOfProfiles) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
+        String sql_isMale ="SELECT isMale from Profile where user_id = "+profileId;
+        ResultSet rs = stmt.executeQuery(sql_isMale);
+        rs.next();
+        Boolean isMale = rs.getBoolean("isMale");
 
         Stack profiles = new Stack();
-        String sql_userId="SELECT profile_id from Profile where isMale = "+ !profile.isMale();
-        ResultSet rs = stmt.executeQuery(sql_userId);
-        Stack profileId = new Stack();
+        String sql_userId="SELECT profile_id from Profile where isMale = "+ !isMale;
+        rs = stmt.executeQuery(sql_userId);
+        Stack profileIds = new Stack();
         while (rs.next()){
-            profileId.add("\""+rs.getInt("profile_id")+"\"");
+            profileIds.add("\""+rs.getInt("profile_id")+"\"");
         }
         String sql_profileIdMIP="";
         String sql_profileIdMatch="";
         String sql_profileIdNoMatch="";
-        if (profile.isMale()){
-            sql_profileIdMIP = "SELECT women_id from MIP where men_id = "+profile.getId()+" and menIsOk = true";
-            sql_profileIdMatch = "SELECT women_id from Matchs where men_id = "+ profile.getId();
-            sql_profileIdNoMatch = "SELECT women_id from NoMatch where men_id = "+ profile.getId();
+        if (isMale){
+            sql_profileIdMIP = "SELECT women_id from MIP where men_id = "+profileId+" and menIsOk = true";
+            sql_profileIdMatch = "SELECT women_id from Matchs where men_id = "+ profileId;
+            sql_profileIdNoMatch = "SELECT women_id from NoMatch where men_id = "+ profileId;
         }
-        if (!profile.isMale()){
-            sql_profileIdMIP = "SELECT men_id from MIP where women_id = "+profile.getId()+" and womenIsOk = true";
-            sql_profileIdMatch = "SELECT men_id from Matchs where women_id = "+ profile.getId();
-            sql_profileIdNoMatch = "SELECT men_id from NoMatch where women_id = "+ profile.getId();
+        if (!isMale){
+            sql_profileIdMIP = "SELECT men_id from MIP where women_id = "+profileId+" and womenIsOk = true";
+            sql_profileIdMatch = "SELECT men_id from Matchs where women_id = "+ profileId;
+            sql_profileIdNoMatch = "SELECT men_id from NoMatch where women_id = "+ profileId;
         }
 
         rs = stmt.executeQuery(sql_profileIdMIP);
         while (rs.next()){
-            profileId.remove("\""+rs.getInt(1)+"\"");
+            profileIds.remove("\""+rs.getInt(1)+"\"");
         }
         rs = stmt.executeQuery(sql_profileIdMatch);
         while (rs.next()){
-            profileId.remove("\""+rs.getInt(1)+"\"");
+            profileIds.remove("\""+rs.getInt(1)+"\"");
         }
         rs = stmt.executeQuery(sql_profileIdNoMatch);
         while (rs.next()){
-            profileId.remove("\""+rs.getInt(1)+"\"");
+            profileIds.remove("\""+rs.getInt(1)+"\"");
         }
         String sql_getProfile="";
         for (int i=0;i<numberOfProfiles;i++){
-            if (profileId.size()<=0) break;
-            Object id =(profileId.pop());
+            if (profileIds.size()<=0) break;
+            Object id =(profileIds.pop());
             String sId = (String) id;
             sId = sId.split("\"")[1];
             int iId = Integer.valueOf(sId);

@@ -81,7 +81,7 @@ public class MessageController {
 
         repository.save(messOutput);
 
-        return new RedirectView("index.html");
+        return new RedirectView("main.html");
 
 
     }
@@ -95,7 +95,7 @@ public class MessageController {
                 repository.delete(message);
             }
         }//for
-        return new RedirectView("index.html");
+        return new RedirectView("main.html");
 
     }
 

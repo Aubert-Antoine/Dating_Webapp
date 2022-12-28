@@ -8,7 +8,7 @@ class Carousel extends Component {
             activepage: "Discover",
             currentIndex: 0,
             profiles: [],
-            user_id:0,
+            user_id:1,
             currentprofile: {"id":0,"username":"0","email":"initial value","password":"initial value","firstName":"initial value"
             ,"lastName":"initial value","age":0,"birthDate":"test",
             "picture":"/asset/favicon/favicon-16x16.png","city":"test","description":"test","male":true}
@@ -21,13 +21,14 @@ class Carousel extends Component {
     componentDidMount() {
         // Fetch the profiles from the backend
 
-        fetch('/profiles')
+        fetch('/profiles?id='+this.state.user_id)
             .then(response => response.json())
             .then(
                 (response) => {
                     console.log(response);
                     this.setState({profiles: response})
                     this.setState({currentprofile: response[this.state.currentIndex]})
+                    console.log(response[this.state.currentIndex])
                 })
 
     }

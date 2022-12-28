@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.crypto.Data;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Stack;
 
 @RestController
 public class UsersController {
@@ -43,11 +45,17 @@ public class UsersController {
 
         if (Database.isUserValid(username, password)){
             System.out.println("Valid User");
+            return new RedirectView("/main.html");
         }
         else{
             System.out.println("Invalid User");
+            return new RedirectView("/login.html");
         }
-        return new RedirectView("/login.html");
+    }
+
+    @GetMapping("")
+    public RedirectView redirect(){
+        return new RedirectView("login.html");
     }
 
 
@@ -65,15 +73,22 @@ public class UsersController {
         System.out.println("User with id "+ from + " dislikes user with id "+ to);
     }
     @GetMapping("/profiles")
-    public Profile[]  getallProfiles() {
+    public ArrayList<Profile>  getallProfiles(@RequestParam int id) throws SQLException, ClassNotFoundException {
         // write code to connect to db
         //get all profiles
         User user = new User(1, "maria", "test", "test");
         User user1 = new User(2, "test 1 ", "test 1 ", "test 1");
         Profile test = new Profile(user,"Maria","Je sais pas", 20,"test","/asset/favicon/favicon-16x16.png","Toulouse",true, "Je m'appel Maria");
         Profile test1 = new Profile(user1,"test 1 ","test 1", 10,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
-        Profile[] profiles = {test,test1};
-        return profiles;
+        ArrayList<Profile>  list = new ArrayList<>();
+        list.add(test1);
+//
+//        Stack<Profile> stack = Database.getProfiles(id,5);
+//        ArrayList<Profile> list = new ArrayList<>();
+//        while(!stack.isEmpty()) {
+//            list.add(stack.pop());
+//        }
+        return list;
 
     }
 
