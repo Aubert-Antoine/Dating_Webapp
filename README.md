@@ -14,6 +14,7 @@ https://github.com/Aubert-Antoine/Dating_Webapp/issues/
 ### **RUN and reuse** :
 > JDK 18 | SDK of 'Dating Webapp' module | -cp Dating Webapp
 > app.DatingWebApp
+> **If anything is display when you lunch the server, please change the root resource directory** to app
 
 #### Languages and tools
 1. **Java**

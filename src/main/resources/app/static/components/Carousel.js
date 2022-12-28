@@ -97,7 +97,7 @@ class Carousel extends Component {
                         <div className="carousel__item">
                             <img src={currentProfile.picture} alt="Profile picture" />
                             <div className="carousel__item__info">
-                      navbar.css           <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
+                                <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
                                 <p>{currentProfile.description}</p>
                                 <p>Location: {currentProfile.city}</p>
                                 <p>Date of birth: {currentProfile.dob}</p>
