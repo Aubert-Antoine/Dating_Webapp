@@ -52,6 +52,7 @@ Buttons
 placement main-item :: ==> profile dans discover
  */
 .main-item {
+    margin-top: 15px;
     display: flex;
     justify-content: center;
     align-items: center;

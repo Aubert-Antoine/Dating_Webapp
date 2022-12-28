@@ -21,3 +21,10 @@
     padding-right: 40px;
 }
 
+.center{
+    align-items: center;
+    padding-top: 15px;
+    place-items: center;
+    margin: 40px auto;
+    display: block;
+}
