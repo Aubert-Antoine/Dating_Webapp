@@ -11,7 +11,7 @@ import java.util.Stack;
 public class DatingWebApp {
     public static void main(String[] args) throws SQLException, ClassNotFoundException, InstantiationException, IllegalAccessException {
         SpringApplication.run(DatingWebApp.class, args);
-//        Database.createDatabase();
+        Database.createDatabase();
 //        Database.fillUser(1,"bebe0106","benoit.marchadier@edu.esiee.fr","benoitpassword");
 //        Database.fillUser(2,"AntoineAub","antoine.aubert@edu.esiee.fr","antoinepassword");
 //        Database.fillUser(3,"juju312000","marchadier.julien@gmail.com","julienpassword");

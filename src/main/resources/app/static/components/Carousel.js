@@ -9,9 +9,9 @@ class Carousel extends Component {
             currentIndex: 0,
             profiles: [],
             user_id:1,
-            currentprofile: {"id":0,"username":"0","email":"initial value","password":"initial value","firstName":"initial value"
-            ,"lastName":"initial value","age":0,"birthDate":"test",
-            "picture":"/asset/favicon/favicon-16x16.png","city":"test","description":"test","male":true}
+            currentprofile: {"id":0,"username":"0","email":"initial value","password":"initial value","firstName":"Clara"
+            ,"lastName":"Imbert","age":21,"birthDate":"test",
+            "picture":"/asset/favicon/favicon-16x16.png","city":"test","description":"Bonjour, je suis Clara, une étudiante en médecine de 21 ans basée à Bologne, en Espagne. Je suis très active et j'adore la danse et le judo. Je suis passionnée par mon métier et j'aime apprendre de nouvelles choses. Je suis également très sociable et j'aime passer du temps avec mes amis et ma famille. En dehors de mes études, j'aime également sortir et découvrir de nouveaux endroits. Si tu cherches une personne dynamique et passionnée, n'hésite pas à me contacter !","male":false}
         }
         this.changeActivePage=this.changeActivePage.bind(this)
     }

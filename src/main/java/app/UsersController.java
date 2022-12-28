@@ -78,9 +78,10 @@ public class UsersController {
         //get all profiles
         User user = new User(1, "maria", "test", "test");
         User user1 = new User(2, "test 1 ", "test 1 ", "test 1");
-        Profile test = new Profile(user,"Maria","Je sais pas", 20,"test","/asset/favicon/favicon-16x16.png","Toulouse",true, "Je m'appel Maria");
-        Profile test1 = new Profile(user1,"test 1 ","test 1", 10,"test","/asset/favicon/favicon-16x16.png","test",true, "test");
+        Profile test = new Profile(user,"Antoine","Aubert", 20,"test","/asset/favicon/favicon-16x16.png","Toulouse",true, "Je m'appel Maria");
+        Profile test1 = new Profile(user1,"Benoit","Marchadier", 20,"test","/asset/favicon/favicon-16x16.png","Paris",true, "Bonjour ! Je suis un étudiant ingénieur de 20 ans basé à Paris. J'adore le sport et j'aime rester en forme en pratiquant régulièrement de la musculation et en allant courir ou jouer au foot. Je suis également passionné de technologie et j'aime tout ce qui touche à l'innovation et à la découverte de nouvelles choses. Je suis quelqu'un de sociable et j'aime passer du temps avec mes amis et ma famille. J'apprécie les sorties en ville, les concerts et les soirées entre amis. Je suis également quelqu'un de sérieux et j'aime travailler dur pour atteindre mes objectifs. Si tu cherches quelqu'un de dynamique, passionné et ambitieux, n'hésite pas à me contacter !");
         ArrayList<Profile>  list = new ArrayList<>();
+        list.add(test);
         list.add(test1);
 //
 //        Stack<Profile> stack = Database.getProfiles(id,5);
