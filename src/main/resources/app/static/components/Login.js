@@ -151,4 +151,4 @@ alert('here is the username '+ username )
     }
 }
 
-ReactDOM.render(<EntryPage/>, document.getElementById("app"))
+ReactDOM.render(<EntryPage/>, document.getElementById("login"))
