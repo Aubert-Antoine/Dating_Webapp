@@ -38,7 +38,6 @@ class Carousel extends Component {
 
     }
 
-    //[{"id":0,"username":"maria","email":"test","password":"test","firstName":"test","lastName":"test","age":1,"birthDate":"test","picture":"/assets/favicon/favicon-16x16.png","city":"test","description":"test","male":true}]
     changeActivePage= (page) =>{
         this.setState({
             activepage:page
@@ -48,20 +47,12 @@ class Carousel extends Component {
     handleLike = (user_id) => {
         alert("handle like from"+ +this.state.user_id+" to " +user_id  )
         fetch('/likes?from='+this.state.user_id+"&to="+user_id)
-
         // Handle the "like" action for the current profile
     }
 
-    NavBar() {
-        return (
-            <nav>
-                <ul className="Nav__bar_ul">
-                    <button onClick={() =>Carousel.changeActivePage("Discover")}>Discover</button>
-                    <button onClick={() =>Carousel.changeActivePage("Profile")}>Profile</button>
-                </ul>
-            </nav>
-        );
-    }
+
+
+
     handleDislike = (user_id) => {
         alert("handle dislike")
         // Handle the "dislike" action for the current profile
@@ -88,71 +79,38 @@ class Carousel extends Component {
         const currentIndex = this.state.currentIndex;
         const activepage = this.state.activepage;
         if(activepage === "Discover") {
-        /**
-         *
-         <div className="carousel">
 
-         <button onClick={this.handlePrev}>&lt;</button>
-         {
-                this.state.profiles.map((currentProfile =>
-                    <div className="carousel__item">
-                        <img src={currentProfile.picture} alt="Profile picture" />
-                        <div className="carousel__item__info">
-                            <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
-                            <p>{currentProfile.biography}</p>
-                            <p>Location: {currentProfile.city}</p>
-                            <p>Date of birth: {currentProfile.dob}</p>
-                            <p>Gender: {currentProfile.gender}</p>
-                            <p>id: {currentProfile.id}</p>
-
-                        </div>
-
-
-                        <button onClick={() =>this.handleLike(currentProfile.id)}>Like</button>
-                        <button onClick={() =>this.handleDislike (currentProfile.id)}>Dislike</button>
-                    </div>
-                    ))
-                }
-         <button onClick={this.handleNext}>&gt;</button>
-         </div>
-         */
 
         return (
             <div>
                 <nav>
                     <ul className="Nav__bar_ul">
-                        <button onClick={() =>this.changeActivePage("Discover")}>Discover</button>
-                        <button onClick={() =>this.changeActivePage("Profile")}>Profile</button>
+                        <button className="button_navbar" onClick={() =>this.changeActivePage("Discover")}>Discover</button>
+                        <button className="button_navbar" onClick={() =>this.changeActivePage("Profile")}>Profile</button>
                     </ul>
                 </nav>
-             <div> User profile </div>
+                <div> User profile </div>
 
-             <div className="carousel">
+                 <div className="carousel">
 
-                <button onClick={this.handlePrev}>&lt;</button>
-
-
-                    <div className="carousel__item">
-
-                        <img src={currentProfile.picture} alt="Profile picture" />
-                        <div className="carousel__item__info">
-                            <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
-                            <p>{currentProfile.description}</p>
-                            <p>Location: {currentProfile.city}</p>
-                            <p>Date of birth: {currentProfile.dob}</p>
-                            <p>Gender: {currentProfile.gender}</p>
-                            <p>id: {currentProfile.id}</p>
-
+                    <button onClick={this.handlePrev}>&lt;</button>
+                        <div className="carousel__item">
+                            <img src={currentProfile.picture} alt="Profile picture" />
+                            <div className="carousel__item__info">
+                      navbar.css           <h1>{currentProfile.firstName} {currentProfile.lastName}</h1>
+                                <p>{currentProfile.description}</p>
+                                <p>Location: {currentProfile.city}</p>
+                                <p>Date of birth: {currentProfile.dob}</p>
+                                <p>Gender: {currentProfile.gender}</p>
+                                <p>id: {currentProfile.id}</p>
+                            </div>
+                            <button onClick={() =>this.handleLike(currentProfile.id)}>Like</button>
+                            <button onClick={() =>this.handleDislike (currentProfile.id)}>Dislike</button>
                         </div>
-
-                        <button onClick={() =>this.handleLike(currentProfile.id)}>Like</button>
-                        <button onClick={() =>this.handleDislike (currentProfile.id)}>Dislike</button>
-
+                        <button onClick={this.handleNext}>&gt;</button>
                     </div>
 
 
-                    <button onClick={this.handleNext}>&gt;</button>
-                </div>
 
             </div>
 
