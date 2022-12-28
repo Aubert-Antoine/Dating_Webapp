@@ -14,36 +14,49 @@
     width: 100%;
 }
 
+/*
 .Nav__bar_li {
     float: left;
 }
 
+
+
+
 .Nav__bar_li a {
     display: block;
-    /*color: white;*/
+    color: white;
     text-decoration: none;
     text-align: center;
     padding: 14px 16px;
 }
+*/
+
+
 .button_navbar {
-    background-color: #f2eee3;
     color: black;
     border: 2px solid #f2eee3;
-    padding: 10px 22px;
-    margin-top: 3px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
     transition-duration: 0.4s;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: #f2eee3;
+    border-radius: 100px;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
 }
 .button_navbar:hover {
-    background-color: #c9c1ad;
+    background-color: rgb(33, 33, 33, 0.07);
     color: #111;
 }
 
 .Nav__bar_li a:hover {
-    background-color: #111;
+    background-color: rgb(33, 33, 33, 0.07);
 }
 
 /* Scroll-bar */

@@ -1,3 +1,5 @@
+import Profile from "./Profile";
+
 const { Component } = React
 
 class Carousel extends Component {
@@ -89,14 +91,12 @@ class Carousel extends Component {
         {
         return (
                 <div>
-                    <nav>
-                        <ul className="Nav__bar_ul">
+                    <nav className="Nav__bar_ul">
                             <button className="button_navbar" onClick={() =>this.changeActivePage("Discover")}>Discover</button>
                             <button className="button_navbar" onClick={() =>this.changeActivePage("Profile")}>Profile</button>
-                        </ul>
                     </nav>
 
-                     <body className="body">
+                     <main className="main-item">
                          <div className="carousel__item">
                              <img src={currentProfile.picture} alt="Profile picture" />
                              <div className="carousel__item__info">
@@ -105,10 +105,10 @@ class Carousel extends Component {
                                  <p>Location: {currentProfile.city}</p>
                                  <p>Age: {currentProfile.age}</p>
                              </div>
-                             <button className="button_carousel-like" onClick={() =>this.handleLike(currentProfile.id)}>Like</button>
                              <button className="button_carousel-dislike" onClick={() =>this.handleDislike (currentProfile.id)}>Dislike</button>
-                        </div>
-                    </body>
+                             <button className="button_carousel-like" onClick={() =>this.handleLike(currentProfile.id)}>Like</button>
+                         </div>
+                    </main>
                 </div>
             );
         }
@@ -122,10 +122,35 @@ class Carousel extends Component {
                     <button className="button_navbar" onClick={() =>this.changeActivePage("Profile")}>Profile</button>
                 </ul>
                 </nav>
+                <main className="main-item">
+                    <div className="profile">
+                        <div className="profile__primary__info">
+                            <ul className="profile__picture">
+                                <img src={this.props.picture} className="pp" alt="PP"/>
+                            </ul>
+                            <ul className="profile__fn_lf">
+                                <div><h1 className="h1__FirstName"><b>{this.props.firstName}</b></h1></div>
+                                <div><h1 className="h1__LastName">{this.props.lastName}</h1></div>
+                            </ul>
+                            <ul className="profile__edit">
+                                <button className="btn__edit"><b>Edit</b></button>
+                            </ul>
+                        </div>
 
-                <body>
-                <h1>test a la place de profil </h1>
-                </body>
+                        <div className="profile__info">
+                            <div className="profile__secondary__info">
+                                <h3>Biography</h3>
+                                <p>{this.props.description}</p>
+                                <h3>Location</h3>
+                                <p>{this.props.location}</p>
+                                <h3>Date of Birth</h3>
+                                <p>{this.props.birthDate}</p>
+                                <h3>Gender</h3>
+                                <p>{this.props.male}</p>
+                            </div>
+                        </div>
+                    </div>
+                </main>
             </div>
             );
         }

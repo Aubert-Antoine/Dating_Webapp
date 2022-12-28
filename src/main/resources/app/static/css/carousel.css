@@ -10,41 +10,49 @@
 Buttons
  */
 .button_carousel-like {
-    background-color: #f2eee3;
-    color: black;
-    border: 1px solid black;
-    margin: 1px;
-    margin-right: 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+    margin-left: 7px;
     transition-duration: 0.4s;
 }
 
 .button_carousel-dislike {
-    background-color: #f2eee3;
-    color: black;
-    border: 1px solid black;
-    margin: 1px;
-    margin-left: 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    transition-duration: 0.4s;
+    height: 36px;
+    max-width: max-content;
+    background-color: rgb(33, 33, 33, 0.07);
+    border-radius: 100px;
+    color: #2f2f2f;
+    line-height: 0;
+    margin: 0.6em 0;
+    margin-right: 7px;
+    font-size: 1rem;
+    padding: 0 1.3em;
+    transition-duration: 0.1s;
 }
 
 
 .button_carousel-like:hover {
-    background-color: #c9c1ad;
+    background-color: #58c239;
     color: #111;
 }
 
 .button_carousel-dislike:hover {
-    background-color: #c9c1ad;
+    background-color: #f83037;
     color: #111;
 }
 
+/*
+placement main-item :: ==> profile dans discover
+ */
+.main-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
