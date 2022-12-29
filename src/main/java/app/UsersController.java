@@ -28,13 +28,15 @@ public class UsersController {
         user.setUsername(username);
         user.setEmail(email);
         user.setPassword(password);
+        Profile profile = new Profile();
 
 
-        if(!Database.isEmailValid(email)) {
+        if(!Database.isEmailValid(email)){
             System.out.println("Error there is already a user with that email");
             return "there is already a user with that email";
         }
-        Database.fillUser(user.getId(),user.getUsername(),user.getEmail(),user.getPassword());
+        Database.newUser(user,profile);
+
         System.out.println("Saved user " + username);
         return "registered";
 

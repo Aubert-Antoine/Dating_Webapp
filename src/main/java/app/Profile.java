@@ -38,9 +38,9 @@ public class Profile extends User{
         super();
         this.firstName = "firstName";
         this.lastName = "lastName";
-        this.age = 10;
+        this.age = 22;
         this.picture = "picture";
-        this.birthDate = String.valueOf(111);
+        this.birthDate = "01/01/2000";
         this.city = "city";
         this.isMale = true;
         this.description = "description";

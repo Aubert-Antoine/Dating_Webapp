@@ -37,7 +37,6 @@ alert('here is the username '+ username )
           .then(answer => {
             console.log(answer);
 
-           alert("response " + answer)
            if(answer === "registered"){
            alert("yes its registered")
                this.setState({

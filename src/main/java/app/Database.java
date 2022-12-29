@@ -95,14 +95,23 @@ public class Database {
      * @throws ClassNotFoundException
      * @throws SQLException
      */
-    public static void fillUser(int pUserId, String pUserName, String pEmail, String pPassWord) throws ClassNotFoundException, SQLException {
+    public static void newUser(User pUser,Profile pProfile) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
         Statement stmt = conn.createStatement();
-        String sql_fillUser = "INSERT INTO User values ("+pUserId+",'"+pUserName+"','"+pEmail+"','"+pPassWord+"')";
-        stmt.executeUpdate(sql_fillUser);
+        String sql_newUser = "INSERT INTO User (username,email,password) values ('"+pUser.getUsername()+"','"+pUser.getEmail()+"','"+pUser.getPassword()+"')";
+        stmt.executeUpdate(sql_newUser);
+        String sql_getUser_id = "SELECT user_id FROM User WHERE email='"+pUser.getEmail()+"'";
+        ResultSet rs = stmt.executeQuery(sql_getUser_id);
+        rs.next();
+        int pUserId = rs.getInt("user_id");
+        String sql_newProfile = "INSERT INTO Profile (user_id,firstName,lastName,age,birthDate,pathPicture,city,isMale,description)" +
+                "VALUES ("+pUserId+",'"+pProfile.getFirstName()+"','"+pProfile.getLastName()+"',"+pProfile.getAge()+",'"+pProfile.getBirthDate()+"'" +
+                ",'"+pProfile.getPicture()+"','"+pProfile.getCity()+"',"+pProfile.isMale()+",'"+pProfile.getDescription()+"')";
+        stmt.execute(sql_newProfile);
         conn.close();
     }//fillUser
+
 
     public static boolean deleteUser(String pEmail, String pPassword) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
