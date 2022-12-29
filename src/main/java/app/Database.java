@@ -208,6 +208,19 @@ public class Database {
         stmt.execute(sql);
     }
 
+    public static Profile getProfile(int userId) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+        String sql_getProfile = "SELECT firstName,lastName,age,birthDate,pathPicture,city,isMale,description FROM Profile WHERE user_id = "+userId;
+        ResultSet rs = stmt.executeQuery(sql_getProfile);
+        rs.next();
+        Profile profile = new Profile(rs.getString("firstName"),rs.getString("lastName"),rs.getInt("age"),
+                rs.getString("birthDate"),rs.getString("pathPicture"),rs.getString("city"),rs.getBoolean("isMale"),
+                rs.getString("description"));
+        stmt.close();
+        return profile;
+    }
 
     public static Stack getProfiles(int profileId, int numberOfProfiles) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");

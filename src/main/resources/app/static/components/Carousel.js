@@ -8,7 +8,10 @@ class Carousel extends Component {
             activepage: "Edit Profile",
             currentIndex: 0,
             profiles: [],
-            user_id:1,
+            user_id:7,
+            userProfile : {"id":0,"username":"0","email":"initial value","password":"initial value","firstName":"Clara"
+            ,"lastName":"Imbert","age":21,"birthDate":"test",
+            "picture":"/asset/favicon/favicon-16x16.png","city":"test","description":"description de base"},
             currentprofile: {"id":0,"username":"0","email":"initial value","password":"initial value","firstName":"Clara"
             ,"lastName":"Imbert","age":21,"birthDate":"test",
             "picture":"/asset/favicon/favicon-16x16.png","city":"test","description":"Bonjour, je suis Clara, une étudiante en médecine de 21 ans basée à Bologne, en Espagne. Je suis très active et j'adore la danse et le judo. Je suis passionnée par mon métier et j'aime apprendre de nouvelles choses. Je suis également très sociable et j'aime passer du temps avec mes amis et ma famille. En dehors de mes études, j'aime également sortir et découvrir de nouveaux endroits. Si tu cherches une personne dynamique et passionnée, n'hésite pas à me contacter !","male":false}
@@ -18,6 +21,16 @@ class Carousel extends Component {
 
 
     componentDidMount() {
+        // Fetch the user_profile from backend thanks to its id
+        fetch('/getProfile?userId='+this.state.user_id)
+            .then(response => response.json())
+            .then(
+                (response)=>{
+                    this.setState({userProfile: response})
+                    console.log(this.state.userProfile.description)
+                }
+            )
+
         // Fetch the profiles from the backend
 
         fetch('/profiles?id='+this.state.user_id)
@@ -64,6 +77,7 @@ class Carousel extends Component {
     render() {
         const currentProfile =   this.state.currentprofile;
         const activepage = this.state.activepage;
+        const userProfile = this.state.userProfile;
 
 
         if(activepage === "Discover")
@@ -104,11 +118,12 @@ class Carousel extends Component {
                         <div className="profile">
                             <div className="profile__primary__info">
                                 <ul className="profile__picture">
-                                    <img src={this.props.picture} className="pp" alt="PP"/>
+                                    <img src={userProfile.picture} className="pp" alt="PP"/>
                                 </ul>
                                 <ul className="profile__fn_lf">
-                                    <div><h1 className="h1__FirstName"><b>{this.props.firstName}</b></h1></div>
-                                    <div><h1 className="h1__LastName">{this.props.lastName}</h1></div>
+                                    <div><h1 className="h1__FirstName"><b>{userProfile.firstName}</b></h1></div>
+                                    <div><h1 className="h1__LastName">{userProfile.lastName}</h1></div>
+                                    <div><h1 className="h1__LastName">{userProfile.age} ans</h1></div>
                                 </ul>
                                 <ul className="profile__edit">
                                     <button className="btn__edit"><b>Edit</b></button>
@@ -118,13 +133,11 @@ class Carousel extends Component {
                             <div className="profile__info">
                                 <div className="profile__secondary__info">
                                     <h3>Biography</h3>
-                                    <p>{this.props.description}</p>
+                                    <p> {userProfile.description}</p>
                                     <h3>Location</h3>
-                                    <p>{this.props.location}</p>
+                                    <p>{userProfile.city}</p>
                                     <h3>Date of Birth</h3>
-                                    <p>{this.props.birthDate}</p>
-                                    <h3>Gender</h3>
-                                    <p>{this.props.male}</p>
+                                    <p>{userProfile.birthDate}</p>
                                 </div>
                             </div>
                         </div>

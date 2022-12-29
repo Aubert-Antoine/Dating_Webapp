@@ -46,6 +46,20 @@ public class Profile extends User{
         this.description = "description";
     }
 
+    @Override
+    public String toString() {
+        return "Profile{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", birthDate='" + birthDate + '\'' +
+                ", picture='" + picture + '\'' +
+                ", city='" + city + '\'' +
+                ", isMale=" + isMale +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
     public String getFirstName() {
         return firstName;
     }

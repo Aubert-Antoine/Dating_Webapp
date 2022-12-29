@@ -14,13 +14,6 @@ import java.util.Stack;
 @RestController
 public class UsersController {
 
-    @Autowired
-    private UserRepository repository;
-
-    @GetMapping("/listAllUsers")
-    public Iterable<User> getAll(){
-        return repository.findAll();
-    }
     @GetMapping("/signUpUser")
     public String addUser(@RequestParam  String username,@RequestParam String email, @RequestParam String password) throws SQLException, ClassNotFoundException {
         System.out.println("Get user" + username);
@@ -60,7 +53,12 @@ public class UsersController {
         return new RedirectView("login.html");
     }
 
-
+    @GetMapping("/getProfile")
+    public Profile getProfile(@RequestParam int userId) throws SQLException, ClassNotFoundException {
+        Profile profile = Database.getProfile(userId);
+        System.out.println(profile);
+        return profile;
+    }
 
     @GetMapping("/likes")
     public void registerLike(@RequestParam int from,@RequestParam int to ) throws SQLException, ClassNotFoundException {
