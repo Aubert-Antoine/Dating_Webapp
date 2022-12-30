@@ -8,7 +8,7 @@ class Carousel extends Component {
             activepage: "Edit Profile",
             currentIndex: 0,
             profiles: [],
-            user_id:7,
+            user_id: new URLSearchParams(location.search).get("id"),
             userProfile : {"id":0,"username":"0","email":"initial value","password":"initial value","firstName":"Clara"
             ,"lastName":"Imbert","age":21,"birthDate":"test",
             "picture":"/asset/favicon/favicon-16x16.png","city":"test","description":"description de base"},

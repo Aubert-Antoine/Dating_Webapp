@@ -40,7 +40,7 @@ public class UsersController {
 
         if (Database.isUserValid(username, password)){
             System.out.println("Valid User");
-            return new RedirectView("/main.html");
+            return new RedirectView("/main.html?id="+Database.getUserId(username,password));
         }
         else{
             System.out.println("Invalid User");

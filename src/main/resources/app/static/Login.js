@@ -29,16 +29,11 @@ class EntryPage extends Component {
 
 
 registerUser( username, email, password) {
-alert('here is the username '+ username )
-    alert('register user in js method 1 ')
      fetch( 'http://localhost:8081/signUpUser?username='+username+'&email='+email+'&password='+password+'')
         .then(status)
        .then(response => response.text())
           .then(answer => {
-            console.log(answer);
-
            if(answer === "registered"){
-           alert("yes its registered")
                this.setState({
                    registered: answer,
                    currentView: "logIn"
@@ -52,13 +47,7 @@ alert('here is the username '+ username )
             alert("there was an error : "+ answer)
            }
            },
-           (error) => {
-               alert(error);
-           }
        )
-        .catch(error => {
-            alert(error);
-        })
     }
 
    currentView = () => {

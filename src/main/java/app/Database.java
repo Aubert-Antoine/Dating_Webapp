@@ -190,7 +190,15 @@ public class Database {
         return false;
     }
 
-
+    public static int getUserId(String pUsername, String pPassword) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
+        Statement stmt = conn.createStatement();
+        String sql_getUserId = "SELECT user_id FROM User WHERE username = '"+pUsername+"' AND password = '"+pPassword+"'";
+        ResultSet rs = stmt.executeQuery(sql_getUserId);
+        rs.next();
+        return rs.getInt("user_id");
+    }
     public static void updateUser(Profile pProfile) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         Connection conn = DriverManager.getConnection(Database.DB_URL, Database.USER, Database.PASS);
